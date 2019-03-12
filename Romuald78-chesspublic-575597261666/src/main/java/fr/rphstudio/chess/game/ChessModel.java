@@ -4,13 +4,11 @@
  * and open the template in the editor.
  */
 package fr.rphstudio.chess.game;
-
 import fr.rphstudio.chess.interf.EmptyCellException;
 import fr.rphstudio.chess.interf.IChess;
 import fr.rphstudio.chess.interf.OutOfBoardException;
 import java.util.ArrayList;
 import java.util.List;
-
 /**
  *
  * @author vlad
@@ -22,7 +20,7 @@ public class ChessModel implements IChess {
     
     private ChessModel ()
     {
-        
+       this.reinit();
     }
     
     
@@ -39,50 +37,58 @@ public class ChessModel implements IChess {
     {
         return 0;
     }
-
     @Override
     public void reinit() {
-        
+         this.plateau = new Plateau();
     }
-
     @Override
     public ChessType getPieceType(ChessPosition p) throws EmptyCellException, OutOfBoardException {
-        return ChessType.TYP_PAWN;
+        
+        Piece temp = this.plateau.getElement(p);
+        if (temp == null){
+           throw new EmptyCellException();
+           
         }
-
+        return temp.get_type();
+    }
     @Override
     public ChessColor getPieceColor(ChessPosition p) throws EmptyCellException, OutOfBoardException {
-        return ChessColor.CLR_BLACK;
+        Piece temp = this.plateau.getElement(p);
+        if (temp == null){
+            throw new EmptyCellException();
+        }
+        return temp.get_color();
     }
-
     @Override
     public int getNbRemainingPieces(ChessColor color) {
-        return 0;
+        return this.plateau.getRemainingElements(color);
     }
-
     @Override
     public List<ChessPosition> getPieceMoves(ChessPosition p) {
+        
+        Piece temp = plateau.getElement(p);
+        
+        if (temp == null){
+           return new ArrayList<ChessPosition>(); 
+        }
+           
+        
         return new ArrayList<ChessPosition>();
     }
-
     @Override
     public void movePiece(ChessPosition p0, ChessPosition p1) {
-
     }
-
     @Override
     public ChessKingState getKingState(ChessColor color) {
         return ChessKingState.KING_SAFE;
     }
-
     @Override
     public List<ChessType> getRemovedPieces(ChessColor color) {
         return new ArrayList<ChessType>();
     }
-
     @Override
     public boolean undoLastMove() {
         return true;
     }
+    
 }
-

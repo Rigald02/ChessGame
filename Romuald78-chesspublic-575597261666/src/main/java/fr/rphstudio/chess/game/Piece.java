@@ -4,17 +4,15 @@
  * and open the template in the editor.
  */
 package fr.rphstudio.chess.game;
-
+import fr.rphstudio.chess.interf.IChess;
 import fr.rphstudio.chess.interf.IChess.ChessColor;
 import fr.rphstudio.chess.interf.IChess.ChessType;
-
+import java.util.ArrayList;
 /**
  *
  * @author vlad
  */
-
 public class Piece {
-
     private ChessColor color;
     private ChessType type;
     
@@ -42,5 +40,9 @@ public class Piece {
     public ChessType get_type()
     {
         return this.type;
+    }
+    
+    public ArrayList<IChess.ChessPosition> getMoves(IChess.ChessPosition p, Plateau tab){
+        return new ArrayList<IChess.ChessPosition>();
     }
 }
