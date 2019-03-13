@@ -69,11 +69,10 @@ public class ChessModel implements IChess {
         Piece temp = plateau.getElement(p);
         
         if (temp == null){
-           return new ArrayList<ChessPosition>(); 
+           return new ArrayList<ChessPosition>();
         }
-           
+        return temp.getMoves(p, plateau);
         
-        return new ArrayList<ChessPosition>();
     }
     @Override
     public void movePiece(ChessPosition p0, ChessPosition p1) {

@@ -8,6 +8,7 @@ import fr.rphstudio.chess.interf.IChess;
 import fr.rphstudio.chess.interf.IChess.ChessColor;
 import fr.rphstudio.chess.interf.IChess.ChessType;
 import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author vlad
@@ -15,11 +16,13 @@ import java.util.ArrayList;
 public class Piece {
     private ChessColor color;
     private ChessType type;
+    private IMove imove;
     
-    public Piece(ChessColor col, ChessType typ)
+    public Piece(ChessColor col, ChessType typ, IMove move)
     {
         this.color = col;
         this.type = typ;
+        this.imove = move;
     }
     
     void set_color(ChessColor color)
@@ -42,7 +45,7 @@ public class Piece {
         return this.type;
     }
     
-    public ArrayList<IChess.ChessPosition> getMoves(IChess.ChessPosition p, Plateau tab){
-        return new ArrayList<IChess.ChessPosition>();
+    public List<IChess.ChessPosition> getMoves(IChess.ChessPosition p, Plateau tab){
+        return this.imove.getPossibleMoves(p, tab);
     }
 }

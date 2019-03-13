@@ -24,9 +24,12 @@ public class Plateau {
     
     private void init()
     {
+        IMove move;
+        
         for (int y = 0; y < IChess.BOARD_HEIGHT; y++){
             for (int x = 0; x < IChess.BOARD_WIDTH; x++){
                IChess.ChessColor col;
+               move = new Knight();
                
                if (y <= IChess.BOARD_POS_Y_BLACK_PAWNS){
                    col = IChess.ChessColor.CLR_BLACK;
@@ -69,7 +72,7 @@ public class Plateau {
                }
                }
                
-               this.tableau[y][x] = new Piece(col, typ);
+               this.tableau[y][x] = new Piece(col, typ, move);
                
             }
         }

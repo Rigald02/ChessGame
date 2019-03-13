@@ -5,13 +5,13 @@
  */
 package fr.rphstudio.chess.game;
 import fr.rphstudio.chess.interf.IChess.ChessPosition;
-import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author vlad
  */
 public interface IMove {
     
-    ArrayList<ChessPosition> getPossibleMoves(ChessPosition p);
-    
+    List<ChessPosition> getPossibleMoves(ChessPosition p, Plateau plat);
+       
 }
