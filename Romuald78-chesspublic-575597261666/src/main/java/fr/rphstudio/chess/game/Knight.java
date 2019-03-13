@@ -25,26 +25,48 @@ public class Knight implements IMove{
             
             // Top
             tmpPos = new ChessPosition(p.x-1, p.y-2);
-            possibleMoves.add(tmpPos);
+            if(tmpPos.x >= 0 && tmpPos.x < IChess.BOARD_WIDTH && tmpPos.y >= 0 && tmpPos.y < IChess.BOARD_HEIGHT)
+            {
+            	possibleMoves.add(tmpPos);
+            }
             tmpPos = new ChessPosition(p.x+1, p.y-2);
-            possibleMoves.add(tmpPos);
+            if(tmpPos.x >= 0 && tmpPos.x < IChess.BOARD_WIDTH && tmpPos.y >= 0 && tmpPos.y < IChess.BOARD_HEIGHT)
+            {
+            	possibleMoves.add(tmpPos);
+            }
+            tmpPos = new ChessPosition(p.x-1, p.y+2);
+            if(tmpPos.x >= 0 && tmpPos.x < IChess.BOARD_WIDTH && tmpPos.y >= 0 && tmpPos.y < IChess.BOARD_HEIGHT)
+            {
+            	possibleMoves.add(tmpPos);
+            }
+            tmpPos = new ChessPosition(p.x+1, p.y+2);
+            if(tmpPos.x >= 0 && tmpPos.x < IChess.BOARD_WIDTH && tmpPos.y >= 0 && tmpPos.y < IChess.BOARD_HEIGHT)
+            {
+            	possibleMoves.add(tmpPos);
+            }
             // Right
             tmpPos = new ChessPosition(p.x+2, p.y-1);
-            possibleMoves.add(tmpPos);            
-            tmpPos = new ChessPosition(p.x+2, p.y+1);
-            possibleMoves.add(tmpPos);
-            for(int i=1;i<IChess.BOARD_HEIGHT;i++)
+            if(tmpPos.x >= 0 && tmpPos.x < IChess.BOARD_WIDTH && tmpPos.y >= 0 && tmpPos.y < IChess.BOARD_HEIGHT)
             {
-                tmpPos = new ChessPosition(p.x-i, p.y-i);
-                if(tmpPos.x >= 0 && tmpPos.x < IChess.BOARD_WIDTH && tmpPos.y >= 0 && tmpPos.y < IChess.BOARD_HEIGHT)
-                {
-                    possibleMoves.add(tmpPos);
-                }
-                
+            	possibleMoves.add(tmpPos);
+            }         
+            tmpPos = new ChessPosition(p.x+2, p.y+1);
+            if(tmpPos.x >= 0 && tmpPos.x < IChess.BOARD_WIDTH && tmpPos.y >= 0 && tmpPos.y < IChess.BOARD_HEIGHT)
+            {
+            	possibleMoves.add(tmpPos);
             }
-                
+            tmpPos = new ChessPosition(p.x-2, p.y-1);
+            if(tmpPos.x >= 0 && tmpPos.x < IChess.BOARD_WIDTH && tmpPos.y >= 0 && tmpPos.y < IChess.BOARD_HEIGHT)
+            {
+            	possibleMoves.add(tmpPos);
+            }           
+            tmpPos = new ChessPosition(p.x-2, p.y+1);
+            if(tmpPos.x >= 0 && tmpPos.x < IChess.BOARD_WIDTH && tmpPos.y >= 0 && tmpPos.y < IChess.BOARD_HEIGHT)
+            {
+            	possibleMoves.add(tmpPos);
+            }
             
-            
+           
             return possibleMoves;
         }
 
