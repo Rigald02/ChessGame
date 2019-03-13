@@ -14,7 +14,7 @@ public class Bishop implements IMove{
 	
 		ChessPosition tmpPos;
 
-		//haut
+		//Haut
 		for(int i=1;i<IChess.BOARD_HEIGHT;i++)
 		{
 			tmpPos = new ChessPosition(p.x-i, p.y-i);

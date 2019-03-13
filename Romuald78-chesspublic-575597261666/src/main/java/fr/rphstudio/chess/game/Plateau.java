@@ -7,6 +7,7 @@ package fr.rphstudio.chess.game;
 
 import fr.rphstudio.chess.interf.EmptyCellException;
 import fr.rphstudio.chess.interf.IChess;
+import fr.rphstudio.chess.interf.IChess.ChessType;
 
 /**
  *
@@ -41,7 +42,7 @@ public class Plateau {
                    continue;
                }
                
-               IChess.ChessType typ = IChess.ChessType.TYP_PAWN;           
+               IChess.ChessType typ = IChess.ChessType.TYP_PAWN;     
                
                if ((y + 1) == IChess.BOARD_POS_Y_BLACK_PAWNS || (y - 1) == IChess.BOARD_POS_Y_WHITE_PAWNS){
                 switch (x){
