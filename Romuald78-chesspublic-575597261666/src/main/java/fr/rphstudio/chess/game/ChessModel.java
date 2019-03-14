@@ -16,12 +16,19 @@ import java.util.List;
 public class ChessModel implements IChess {
     private static ChessModel instance;
     private Plateau plateau;
+   
     
+    public Plateau getPlateau()
+    {
+    	return this.plateau;
+    }
     
     private ChessModel ()
     {
        this.reinit();
     }
+    
+    
     
     
     static public ChessModel getInstance()
@@ -76,10 +83,21 @@ public class ChessModel implements IChess {
     }
     @Override
     public void movePiece(ChessPosition p0, ChessPosition p1) {
+    	plateau.setNewPosition(p0, p1);
+    	List<Piece[][]> tab = this.getPlateau().get_all_tableau();
+    	Piece[][] bob = this.getPlateau().get_tableau();
+    	tab.add(bob);
     }
     @Override
     public ChessKingState getKingState(ChessColor color) {
-        return ChessKingState.KING_SAFE;
+    	if(plateau.checkKingState(color, this.getPlateau()) == true)
+    	{
+    		return ChessKingState.KING_THREATEN;
+    	}
+    	else
+    	{
+    		return ChessKingState.KING_SAFE;
+    	}
     }
     @Override
     public List<ChessType> getRemovedPieces(ChessColor color) {
@@ -87,7 +105,12 @@ public class ChessModel implements IChess {
     }
     @Override
     public boolean undoLastMove() {
-        return true;
+    	List<Piece[][]> temp = this.getPlateau().get_all_tableau();
+    	if (temp.size() > 1) {
+    		this.getPlateau().set_tableau(temp.get(temp.size() - 2));
+    		return true;
+    	}
+    	return false;
     }
     
 }
