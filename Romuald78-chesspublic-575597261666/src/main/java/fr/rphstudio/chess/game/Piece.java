@@ -14,38 +14,38 @@ import java.util.List;
  * @author vlad
  */
 public class Piece {
-    private ChessColor color;
-    private ChessType type;
-    private IMove imove;
-    
-    public Piece(ChessColor col, ChessType typ, IMove move)
-    {
-        this.color = col;
-        this.type = typ;
-        this.imove = move;
-    }
-    
-    void set_color(ChessColor color)
-    {
-        this.color = color;
-    }
-    
-    public ChessColor get_color()
-    {
-        return this.color;
-    }
-    
-    public void set_type(ChessType type)
-    {
-        this.type = type;
-    }
-    
-    public ChessType get_type()
-    {
-        return this.type;
-    }
-    
-    public List<IChess.ChessPosition> getMoves(IChess.ChessPosition p, Plateau tab){
-        return this.imove.getPossibleMoves(p, tab);
-    }
+	private ChessColor color;
+	private ChessType type;
+	private IMove imove;
+
+	public Piece(ChessColor col, ChessType typ, IMove move)
+	{
+		this.color = col;
+		this.type = typ;
+		this.imove = move;
+	}
+
+	void set_color(ChessColor color)
+	{
+		this.color = color;
+	}
+
+	public ChessColor get_color()
+	{
+		return this.color;
+	}
+
+	public void set_type(ChessType type)
+	{
+		this.type = type;
+	}
+
+	public ChessType get_type()
+	{
+		return this.type;
+	}
+
+	public List<IChess.ChessPosition> getMoves(IChess.ChessPosition p, Plateau tab){
+		return this.imove.getPossibleMoves(p, tab);
+	}
 }

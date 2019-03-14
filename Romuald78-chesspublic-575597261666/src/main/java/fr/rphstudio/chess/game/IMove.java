@@ -11,7 +11,7 @@ import java.util.List;
  * @author vlad
  */
 public interface IMove {
-    
-    List<ChessPosition> getPossibleMoves(ChessPosition p, Plateau plat);
-       
+
+	List<ChessPosition> getPossibleMoves(ChessPosition p, Plateau plat);
+
 }

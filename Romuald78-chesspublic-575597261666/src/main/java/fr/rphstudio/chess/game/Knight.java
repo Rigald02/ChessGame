@@ -32,7 +32,7 @@ public class Knight implements IMove{
 			Piece chess = plat.getElement(tmpPos);
 			if(chess == null)
 			{
-					possibleMoves.add(tmpPos);
+				possibleMoves.add(tmpPos);
 			}
 			else if (chess.get_color() != temp)
 			{

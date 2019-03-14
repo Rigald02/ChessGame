@@ -8,21 +8,21 @@ import fr.rphstudio.chess.interf.IChess.ChessColor;
 import fr.rphstudio.chess.interf.IChess.ChessPosition;
 
 public class Rook implements IMove{
-	
+
 	/**
 	 *
 	 *
 	 *
 	 */
-	
+
 	public List<IChess.ChessPosition> getPossibleMoves(IChess.ChessPosition p, Plateau plat){
-		
+
 		ArrayList<ChessPosition> possibleMoves = new ArrayList<ChessPosition>();
-		
+
 		ChessColor temp = plat.getElement(p).get_color();
 
 		ChessPosition tmpPos;
-		
+
 		//horizontale
 		for(int i=1;i<IChess.BOARD_WIDTH;i++)
 		{
@@ -130,8 +130,8 @@ public class Rook implements IMove{
 			}
 		}
 
-	return possibleMoves;
+		return possibleMoves;
 	}	
 }
-	
+
 
